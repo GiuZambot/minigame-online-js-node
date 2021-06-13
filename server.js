@@ -1,20 +1,22 @@
 import express from 'express'
-import http from 'http'
 import createGame from './public/game.js'
-import socketio from 'socket.io'
 
-const app = express();
-const server = http.createServer(app);
-const sockets = socketio(server);
+import { createServer } from 'http';
+import { Server } from 'socket.io';
 
-app.use(express.static('public'));
 
-const game = createGame();
-game.start();
+const app = express()
+const server = createServer(app)
+const sockets = new Server(server)
+
+app.use(express.static('public'))
+
+const game = createGame()
+game.start()
 
 game.subscribe((command) => {
-    console.log(`> Emitting ${command.type}`);
-    sockets.emit(command.type, command);
+    console.log(`> Emitting ${command.type}`)
+    sockets.emit(command.type, command)
 })
 
 sockets.on('connection', (socket) => {
@@ -38,6 +40,8 @@ sockets.on('connection', (socket) => {
     })
 })
 
-server.listen(3000, () => {
-    console.log(`> Server listening on port: 3000`);
+let port = (process.env.PORT) ? process.env.PORT : 3000;
+
+server.listen(port, () => {
+    console.log(`listening on http://localhost:${port}/`)
 })

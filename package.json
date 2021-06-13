@@ -1,21 +1,24 @@
 {
-  "name": "pacdot",
-  "version": "0.0.2",
-  "main": "server.js",
-  "type": "module",
-  "scripts": {
-      "test": "echo \"Error: no test pecified\" && exit 1"
-  },
-  "repository": "https://github.com/GiuZambot/chat-socketio-nodejs",
-  "licence": "MIT",
-  "keywords": ["example","heroku"],
-  "author": "GiuZambot",
-  "description": "Mini game for study",
-  "engines": {
-      "node": "14.17.0"
-  },
-  "dependencies": {
-      "express": "^4.17.1",
-      "socket.io": "^4.1.2"
-  }
+    "name": "pacdot",
+    "version": "0.0.2",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test pecified\" && exit 1"
+    },
+    "repository": "https://github.com/GiuZambot/minigame-online-js-node",
+    "licence": "MIT",
+    "keywords": [
+        "example",
+        "heroku"
+    ],
+    "author": "GiuZambot",
+    "description": "Mini game for study",
+    "engines": {
+        "node": "14.17.0"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "socket.io": "^4.1.2"
+    }
 }

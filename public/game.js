@@ -1,5 +1,5 @@
 export default function createGame() {
-    console.log("Game criado");
+    
     const state = {
         players: {},
         fruits: {},
