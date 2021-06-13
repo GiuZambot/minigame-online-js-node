@@ -6,28 +6,28 @@ export default function createGame() {
             width: 10,
             height: 10
         }
-    }
+    };
 
     const observers = []
 
     function start() {
-        const frequency = 2000
-
-        setInterval(addFruit, frequency)
+        const frequency = 2000;
+        console.log("Game iniciado");
+        setInterval(addFruit, frequency);
     }
 
     function subscribe(observerFunction) {
-        observers.push(observerFunction)
+        observers.push(observerFunction);
     }
 
     function notifyAll(command) {
         for (const observerFunction of observers) {
-            observerFunction(command)
+            observerFunction(command);
         }
     }
 
     function setState(newState) {
-        Object.assign(state, newState)
+        Object.assign(state, newState);
     }
 
     function addPlayer(command) {
@@ -38,7 +38,7 @@ export default function createGame() {
         state.players[playerId] = {
             x: playerX,
             y: playerY
-        }
+        };
 
         notifyAll({
             type: 'add-player',
@@ -60,14 +60,14 @@ export default function createGame() {
     }
 
     function addFruit(command) {
-        const fruitId = command ? command.fruitId : Math.floor(Math.random() * 10000000)
-        const fruitX = command ? command.fruitX : Math.floor(Math.random() * state.screen.width)
-        const fruitY = command ? command.fruitY : Math.floor(Math.random() * state.screen.height)
+        const fruitId = command ? command.fruitId : Math.floor(Math.random() * 10000000);
+        const fruitX = command ? command.fruitX : Math.floor(Math.random() * state.screen.width);
+        const fruitY = command ? command.fruitY : Math.floor(Math.random() * state.screen.height);
 
         state.fruits[fruitId] = {
             x: fruitX,
             y: fruitY
-        }
+        };
 
         notifyAll({
             type: 'add-fruit',
