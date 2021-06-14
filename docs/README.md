@@ -1,3 +1,5 @@
 ## Documentação
 
-Status 0%
+```js
+let status = 0 + "%";
+```
